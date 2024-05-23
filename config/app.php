@@ -166,8 +166,10 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
+        Illuminate\Session\SessionServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        ProtoneMedia\LaravelFFMpeg\Support\ServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -181,8 +183,12 @@ return [
     |
     */
 
-    'aliases' => Facade::defaultAliases()->merge([
-        // 'Example' => App\Facades\Example::class,
-    ])->toArray(),
 
+    'aliases' => [
+
+        'Session' => Illuminate\Support\Facades\Session::class,
+
+        'FFMpeg' => ProtoneMedia\LaravelFFMpeg\Support\FFMpeg::class
+
+    ],
 ];
